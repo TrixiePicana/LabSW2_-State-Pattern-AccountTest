@@ -43,11 +43,21 @@ public class Account //Context Class
         return accountNumber;
     }
 
+    public double getBalance() 
+    {
+        return this.balance;
+    }
+
+    public void setBalance(double balance) 
+    {
+        this.balance = balance;
+    }
+    
     public void setAccountState(AccountState accountstate)
     {
         this.accountState = accountState;
     }
-
+    
     @Override
     public String toString()
     {

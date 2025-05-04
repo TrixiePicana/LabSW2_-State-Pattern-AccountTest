@@ -1,4 +1,4 @@
-public class Account    //Context Class
+public class Account //Context Class
 {
     private String accountNumber;
     private double balance;
@@ -9,39 +9,48 @@ public class Account    //Context Class
 
         this.accountNumber = accountNumber;
         this.balance = balance;
-        this.accountState = accountState;
+        this.accountState = new ActiveState(); //default state
     }
 
 
-    public void deposit(double depositAmount)
+    public void deposit(double amount)
     {
-    
+        accountState.deposit(this, amount);
     }
 
-    public void withdraw(double withdrawAmount)
+    public void withdraw(double amount)
     {
-
+        accountState.withdraw(this, amount);
     }
 
     public void suspend()
     {
-        System.out.println("Account is suspended");
+        accountState.suspend(this);
     }
 
     public void activate()
     {
-        System.out.println("Account is already activated");
+        accountState.activate(this);
     }
 
     public void close()
     {
-        System.out.println("Account is closed");
-
-
+        accountState.close(this);
     }
 
+    public String getAccountNumber()
+    {
+        return accountNumber;
+    }
+
+    public void setAccountState(AccountState accountstate)
+    {
+        this.accountState = accountState;
+    }
+
+    @Override
     public String toString()
     {
-        return "AccountNumber: " + accountNumber + "; " + "Balance: " + balance;
+        return "Account Number: " + accountNumber + ", Balance: " + balance;
     }
 }

@@ -53,7 +53,7 @@ public class Account //Context Class
         this.balance = balance;
     }
     
-    public void setAccountState(AccountState accountstate)
+    public void setAccountState(AccountState accountState)
     {
         this.accountState = accountState;
     }
